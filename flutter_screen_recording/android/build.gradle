@@ -5,9 +5,8 @@ buildscript {
     ext.kotlin_version = '1.8.0'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
-
     }
 
     dependencies {
@@ -19,7 +18,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
@@ -28,7 +27,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 32
+    namespace 'com.isvisoft.flutter_screen_recording'
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -41,12 +41,11 @@ android {
         disable 'InvalidPackage'
     }
     compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    android {
-        kotlinOptions {
-            jvmTarget = '1.8'
-        }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
@@ -54,5 +53,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.github.HBiSoft:HBRecorder:2.0.5'
-
 }
