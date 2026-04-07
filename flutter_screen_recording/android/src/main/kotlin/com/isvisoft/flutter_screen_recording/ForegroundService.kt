@@ -10,7 +10,6 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.isvisoft.flutter_screen_recording.FlutterScreenRecordingPlugin
-import com.isvisoft.flutter_screen_recording.R
 
 
 class ForegroundService : Service() {
@@ -40,7 +39,7 @@ class ForegroundService : Service() {
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Flutter Screen Recording")
                 .setContentText(input)
-                .setSmallIcon(R.drawable.icon)
+                .setSmallIcon(android.R.drawable.ic_menu_camera)
                 .setContentIntent(pendingIntent)
                 .build()
         startForeground(1, notification)
